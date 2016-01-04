@@ -73,6 +73,12 @@ module.exports = function (grunt) {
         }
     });
     grunt.registerTask('publish', 'kevoree_registry');
-    grunt.registerTask('kev', ['build', 'kevoree']);
+    grunt.registerTask('kev', 'Run project using kevscript', function () {
+        grunt.tasks([
+            'kevoree_genmodel',
+            'browserify',
+            'kevoree'
+        ]);
+    });
     grunt.registerTask('browser', 'browserify');
 };
